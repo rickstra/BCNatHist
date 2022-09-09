@@ -1,0 +1,12 @@
+Package: BCNatHist
+Type: Package
+Title: What the package does (short line)
+Version: 1.0
+Date: 2022-09-08
+Author: Rickard Strandberg
+Maintainer: Who to complain to <rickard.strandberg@ki.se>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: Rcpp (>= 1.0.2)
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 7.2.1
