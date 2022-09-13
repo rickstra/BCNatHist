@@ -181,8 +181,8 @@ EstimateBCModel <- function(model, data, hessian = TRUE,
     ifelse(is.nan(log_lik), -1e16, log_lik)
   }
   
-  cl <- makePSOCKcluster(n_cores)
-  registerDoParallel(cl)
+  cl <- parallel::makePSOCKcluster(n_cores)
+  doParallel::registerDoParallel(cl)
   est <- optim(model$par, function(pars) CalcLogL(pars, data, d0), method = 'BFGS',
                hessian = hessian, control = list(fnscale = -1))
   names(est$par) <- names(model$par)
@@ -229,7 +229,7 @@ SummarizeBCEstimates <- function(model, alpha = 0.05, trans = TRUE) {
     if (trans) {
       ix <- which(out$par == 'beta0')
       out[5:(ix - 1), 2:4] <- exp(out[5:(ix - 1), 2:4])
-      if (onset_dependent_growth){
+      if (onset_dep_growth){
         out[nrow(out), 2:4] <- exp(out[nrow(out), 2:4])
       }
     }
@@ -256,7 +256,7 @@ summary.BCModel <- function(model, ...) {
   cat("Sens:   ")
   print(model$sens)
   cat("Onset-dependent growth: ")
-  print(model$onset_dependent_growth)
+  print(model$onset_dep_growth)
   cat("#####################################################\n")
   if (model$fitted) {
     print(SummarizeBCEstimates(model, ...))
