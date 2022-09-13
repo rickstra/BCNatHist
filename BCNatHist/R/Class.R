@@ -181,8 +181,8 @@ EstimateBCModel <- function(model, data, hessian = TRUE,
     ifelse(is.nan(log_lik), -1e16, log_lik)
   }
   
-  cl <- makePSOCKcluster(n_cores)
-  registerDoParallel(cl)
+  cl <- parallel::makePSOCKcluster(n_cores)
+  doParallel::registerDoParallel(cl)
   est <- optim(model$par, function(pars) CalcLogL(pars, data, d0), method = 'BFGS',
                hessian = hessian, control = list(fnscale = -1))
   names(est$par) <- names(model$par)
