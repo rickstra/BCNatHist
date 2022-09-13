@@ -29,10 +29,10 @@ DefineBCModel(
 \value{
 A list-type object of class "BCmodel".
 \describe{
-  \item{$onset} {The specified formula for the onset submodel.}
+  \item{$onset}{The specified formula for the onset submodel.}
   \item{$growth}{The specified formula for the growth rate submodel.}
-  \item{$sympt} {The specified formula for the symptomatic detection submodel.}
-  \item{$sens}  {The specified formula for the screening sensitivity submodel.}
+  \item{$sympt}{The specified formula for the symptomatic detection submodel.}
+  \item{$sens}{The specified formula for the screening sensitivity submodel.}
   \item{$onset.dep.growth}{Indicates if the inverse growth rate depends on the age at onset}
   \item{$par}{Numeric vector containing parameter values for all four submodels, either provided by start.par or assigned by the function.}
   \item{$fitted}{Indicates if the model parameters has been fitted to data. Set to FALSE.}

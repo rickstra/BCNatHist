@@ -1,19 +1,17 @@
 #' @title DefineBCModel
 #' @description Set up a natural history model.
-#'
 #' @param onset  Specifies covariates to include in the onset submodel.
 #' @param growth Specifies covariates to include in the inverse growth rate submodel.
 #' @param sympt  Specifies covariates to include in the symptomatic detection submodel.
 #' @param sens   Specifies covariates to include in the screening sensitivity submodel.
 #' @param onset_dep_growth Indicate if the inverse growth rate should depend on the age at onset (Strandberg et al. 2022).
 #' @param start_par Optionally specify (starting) parameter values.
-#'
 #' @return A list-type object of class "BCmodel".
 #' \describe{
-#'   \item{$onset} {The specified formula for the onset submodel.}
+#'   \item{$onset}{The specified formula for the onset submodel.}
 #'   \item{$growth}{The specified formula for the growth rate submodel.}
-#'   \item{$sympt} {The specified formula for the symptomatic detection submodel.}
-#'   \item{$sens}  {The specified formula for the screening sensitivity submodel.}
+#'   \item{$sympt}{The specified formula for the symptomatic detection submodel.}
+#'   \item{$sens}{The specified formula for the screening sensitivity submodel.}
 #'   \item{$onset_dep_growth}{Indicates if the inverse growth rate depends on the age at onset}
 #'   \item{$par}{Numeric vector containing parameter values for all four submodels, either provided by start.par or assigned by the function.}
 #'   \item{$fitted}{Indicates if the model parameters has been fitted to data. Set to FALSE.}
