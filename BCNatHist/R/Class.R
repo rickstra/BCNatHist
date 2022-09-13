@@ -241,7 +241,7 @@ SummarizeBCEstimates <- function(model, alpha = 0.05, trans = TRUE) {
   })
 }
 
-#' @title SummarizeBCEstimates
+#' @title summary.BCModel
 #' @description 
 #'
 #' @param model Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.
