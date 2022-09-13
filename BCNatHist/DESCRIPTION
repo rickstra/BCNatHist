@@ -7,6 +7,10 @@ Author: Rickard Strandberg
 Maintainer: Who to complain to <rickard.strandberg@ki.se>
 Description: More about what it does (maybe more than one line)
 License: What license is it under?
-Imports: Rcpp (>= 1.0.2)
+Imports: 
+  Rcpp (>= 1.0.2)
+  foreach
+  doParallel
+  itertools
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 7.2.1
