@@ -11,7 +11,7 @@
 // par[7] = beta_s
 
 //' @title EvalCaseIntegral
-//' @description Evaluate the integral for BC cases
+//' @description Evaluate the integral for BC cases.
 //' @export
 // [[Rcpp::export]]
 double EvalCaseIntegral(double age, double v, arma::rowvec scr, 
@@ -47,7 +47,7 @@ double EvalCaseIntegral(double age, double v, arma::rowvec scr,
 }
 
 //' @title EvalCensIntegral
-//' @description Evaluate the double integral for censored
+//' @description Evaluate the double integral for censored.
 //' @export
 // [[Rcpp::export]]
 double EvalCensIntegral(double age, arma::rowvec scr, arma::vec par,
@@ -139,11 +139,11 @@ double CalcCensCase(double age, arma::rowvec scr, arma::vec par,
   return out;
 }
 
-//' @title IndL
+//' @title CalcIndividualLikelihood
 //' @description Determine case and mode status, and calculate the corresponding joint likelihood
 //' @export
 // [[Rcpp::export]]
-double IndL(int is_case, int is_scr, double age, double v, arma::rowvec scr,
+double CalcIndividualLikelihood(int is_case, int is_scr, double age, double v, arma::rowvec scr,
             double entry, arma::rowvec e_scr, arma::vec par,
             arma::colvec t_pts, arma::colvec t_wts,
             arma::rowvec r_pts, arma::rowvec r_wts,
