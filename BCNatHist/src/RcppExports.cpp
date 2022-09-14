@@ -103,9 +103,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// IndL
-double IndL(int is_case, int is_scr, double age, double v, arma::rowvec scr, double entry, arma::rowvec e_scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_IndL(SEXP is_caseSEXP, SEXP is_scrSEXP, SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP entrySEXP, SEXP e_scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// CalcIndividualLikelihood
+double CalcIndividualLikelihood(int is_case, int is_scr, double age, double v, arma::rowvec scr, double entry, arma::rowvec e_scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcIndividualLikelihood(SEXP is_caseSEXP, SEXP is_scrSEXP, SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP entrySEXP, SEXP e_scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -123,13 +123,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(IndL(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(CalcIndividualLikelihood(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
-// f_CaseIntegral_odg
-double f_CaseIntegral_odg(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t, arma::colvec t_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_f_CaseIntegral_odg(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// EvalCaseIntegralODG
+double EvalCaseIntegralODG(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_EvalCaseIntegralODG(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -141,13 +141,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(f_CaseIntegral_odg(age, v, scr, par, t, t_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(EvalCaseIntegralODG(age, v, scr, par, t, t_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
-// f_CensIntegral_odg
-double f_CensIntegral_odg(double age, arma::rowvec scr, arma::vec par, arma::colvec t, arma::colvec t_wts, arma::rowvec r, arma::rowvec r_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_f_CensIntegral_odg(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP rSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// EvalCensIntegralODG
+double EvalCensIntegralODG(double age, arma::rowvec scr, arma::vec par, arma::colvec t, arma::colvec t_wts, arma::rowvec r, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_EvalCensIntegralODG(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP rSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -160,13 +160,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(f_CensIntegral_odg(age, scr, par, t, t_wts, r, r_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(EvalCensIntegralODG(age, scr, par, t, t_wts, r, r_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
-// f_ScreenCase_odg
-double f_ScreenCase_odg(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_f_ScreenCase_odg(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// CalcScreenCaseODG
+double CalcScreenCaseODG(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcScreenCaseODG(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -178,13 +178,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(f_ScreenCase_odg(age, v, scr, par, t_pts, t_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(CalcScreenCaseODG(age, v, scr, par, t_pts, t_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
-// f_SymptCase_odg
-double f_SymptCase_odg(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_f_SymptCase_odg(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// CalcSymptCaseODG
+double CalcSymptCaseODG(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcSymptCaseODG(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -196,13 +196,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(f_SymptCase_odg(age, v, scr, par, t_pts, t_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(CalcSymptCaseODG(age, v, scr, par, t_pts, t_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
-// f_CensCase_odg
-double f_CensCase_odg(double age, arma::rowvec scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_f_CensCase_odg(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// CalcCensCaseODG
+double CalcCensCaseODG(double age, arma::rowvec scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcCensCaseODG(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -215,13 +215,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(f_CensCase_odg(age, scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(CalcCensCaseODG(age, scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
-// IndL_odg
-double IndL_odg(int is_case, int is_scr, double age, double v, arma::rowvec scr, double entry, arma::rowvec e_scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
-RcppExport SEXP _BCNatHist_IndL_odg(SEXP is_caseSEXP, SEXP is_scrSEXP, SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP entrySEXP, SEXP e_scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+// CalcIndividualLikelihoodODG
+double CalcIndividualLikelihoodODG(int is_case, int is_scr, double age, double v, arma::rowvec scr, double entry, arma::rowvec e_scr, arma::vec par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcIndividualLikelihoodODG(SEXP is_caseSEXP, SEXP is_scrSEXP, SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP entrySEXP, SEXP e_scrSEXP, SEXP parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -239,7 +239,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
     Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
     Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
-    rcpp_result_gen = Rcpp::wrap(IndL_odg(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0));
+    rcpp_result_gen = Rcpp::wrap(CalcIndividualLikelihoodODG(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -250,13 +250,13 @@ static const R_CallMethodDef CallEntries[] = {
     {"_BCNatHist_CalcScreenCase", (DL_FUNC) &_BCNatHist_CalcScreenCase, 8},
     {"_BCNatHist_CalcSymptCase", (DL_FUNC) &_BCNatHist_CalcSymptCase, 8},
     {"_BCNatHist_CalcCensCase", (DL_FUNC) &_BCNatHist_CalcCensCase, 9},
-    {"_BCNatHist_IndL", (DL_FUNC) &_BCNatHist_IndL, 14},
-    {"_BCNatHist_f_CaseIntegral_odg", (DL_FUNC) &_BCNatHist_f_CaseIntegral_odg, 8},
-    {"_BCNatHist_f_CensIntegral_odg", (DL_FUNC) &_BCNatHist_f_CensIntegral_odg, 9},
-    {"_BCNatHist_f_ScreenCase_odg", (DL_FUNC) &_BCNatHist_f_ScreenCase_odg, 8},
-    {"_BCNatHist_f_SymptCase_odg", (DL_FUNC) &_BCNatHist_f_SymptCase_odg, 8},
-    {"_BCNatHist_f_CensCase_odg", (DL_FUNC) &_BCNatHist_f_CensCase_odg, 9},
-    {"_BCNatHist_IndL_odg", (DL_FUNC) &_BCNatHist_IndL_odg, 14},
+    {"_BCNatHist_CalcIndividualLikelihood", (DL_FUNC) &_BCNatHist_CalcIndividualLikelihood, 14},
+    {"_BCNatHist_EvalCaseIntegralODG", (DL_FUNC) &_BCNatHist_EvalCaseIntegralODG, 8},
+    {"_BCNatHist_EvalCensIntegralODG", (DL_FUNC) &_BCNatHist_EvalCensIntegralODG, 9},
+    {"_BCNatHist_CalcScreenCaseODG", (DL_FUNC) &_BCNatHist_CalcScreenCaseODG, 8},
+    {"_BCNatHist_CalcSymptCaseODG", (DL_FUNC) &_BCNatHist_CalcSymptCaseODG, 8},
+    {"_BCNatHist_CalcCensCaseODG", (DL_FUNC) &_BCNatHist_CalcCensCaseODG, 9},
+    {"_BCNatHist_CalcIndividualLikelihoodODG", (DL_FUNC) &_BCNatHist_CalcIndividualLikelihoodODG, 14},
     {NULL, NULL, 0}
 };
 

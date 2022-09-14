@@ -23,7 +23,7 @@ EstimateBCModel(
 \arguments{
 \item{model}{Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.}
 
-\item{data}{Data.}
+\item{data}{Dataframe containing the cohort data. One entry per individual.}
 
 \item{hessian}{Indicates if the Hessian matrix should be returned.}
 
@@ -33,7 +33,7 @@ EstimateBCModel(
 
 \item{entry}{The variable name in \code{data} corresponding to the age at study entry.}
 
-\item{exit}{The variable name in \code{data} corresponding to the age at end of follow-up.}
+\item{exit}{The variable name in \code{data} corresponding to the age at end of follow-up. For BC cases, this is also the age at diagnosis.}
 
 \item{is_case}{The variable name in \code{data} indicating BC case status (case = 1).}
 
@@ -43,9 +43,9 @@ EstimateBCModel(
 
 \item{scr_hist}{The variable name in \code{data} corresponding to the screening histories (each entry a list of ages screened).}
 
-\item{gauss_kronrod_set}{Description.}
+\item{gauss_kronrod_set}{Integer indicating how many nodes to use in Gauss-Kronrod quadrature. Values of 1-6 are supported and correspond to {11, 21, ..., 61} nodes, respectively.}
 
-\item{gauss_leguerre_set}{Description.}
+\item{gauss_leguerre_set}{Integer indicating how many nodes to use in Gauss-Leguerre quadrature. Values of 1-6 are supported and correspond to {10, 20, ..., 60} nodes, respectively..}
 }
 \value{
 Fitted Model.

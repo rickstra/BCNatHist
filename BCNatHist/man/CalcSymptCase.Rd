@@ -7,5 +7,5 @@
 CalcSymptCase(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985)
 }
 \description{
-Calculate the joint likelihood of a single symptomatic case
+Calculate the joint likelihood of a single symptomatic case.
 }

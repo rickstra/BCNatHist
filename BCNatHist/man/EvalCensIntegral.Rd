@@ -7,5 +7,5 @@
 EvalCensIntegral(age, scr, par, t, t_wts, r, r_wts, d0 = 0.5, v0 = 0.06544985)
 }
 \description{
-Evaluate the double integral for censored
+Evaluate the double integral for censored.
 }

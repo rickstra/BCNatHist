@@ -7,5 +7,5 @@
 EvalCaseIntegral(age, v, scr, par, t, t_wts, d0 = 0.5, v0 = 0.06544985)
 }
 \description{
-Evaluate the integral for BC cases
+Evaluate the integral for BC cases.
 }

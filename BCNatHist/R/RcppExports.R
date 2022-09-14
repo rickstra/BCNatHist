@@ -2,68 +2,86 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' @title EvalCaseIntegral
-#' @description Evaluate the integral for BC cases
+#' @description Evaluate the integral for BC cases.
 #' @export
 EvalCaseIntegral <- function(age, v, scr, par, t, t_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_EvalCaseIntegral', PACKAGE = 'BCNatHist', age, v, scr, par, t, t_wts, d0, v0)
+    .Call(`_BCNatHist_EvalCaseIntegral`, age, v, scr, par, t, t_wts, d0, v0)
 }
 
 #' @title EvalCensIntegral
-#' @description Evaluate the double integral for censored
+#' @description Evaluate the double integral for censored.
 #' @export
 EvalCensIntegral <- function(age, scr, par, t, t_wts, r, r_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_EvalCensIntegral', PACKAGE = 'BCNatHist', age, scr, par, t, t_wts, r, r_wts, d0, v0)
+    .Call(`_BCNatHist_EvalCensIntegral`, age, scr, par, t, t_wts, r, r_wts, d0, v0)
 }
 
 #' @title CalcScreenCase
-#' @description Calculate the joint likelihood of a single screen-detected case
+#' @description Calculate the joint likelihood of a single screen-detected case.
 #' @export
 CalcScreenCase <- function(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_CalcScreenCase', PACKAGE = 'BCNatHist', age, v, scr, par, t_pts, t_wts, d0, v0)
+    .Call(`_BCNatHist_CalcScreenCase`, age, v, scr, par, t_pts, t_wts, d0, v0)
 }
 
 #' @title CalcSymptCase
-#' @description Calculate the joint likelihood of a single symptomatic case
+#' @description Calculate the joint likelihood of a single symptomatic case.
 #' @export
 CalcSymptCase <- function(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_CalcSymptCase', PACKAGE = 'BCNatHist', age, v, scr, par, t_pts, t_wts, d0, v0)
+    .Call(`_BCNatHist_CalcSymptCase`, age, v, scr, par, t_pts, t_wts, d0, v0)
 }
 
 #' @title CalcCensCase
-#' @description Calculate the joint likelihood of a single censored
+#' @description Calculate the likelihood of a single censored.
 #' @export
 CalcCensCase <- function(age, scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_CalcCensCase', PACKAGE = 'BCNatHist', age, scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
+    .Call(`_BCNatHist_CalcCensCase`, age, scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
 }
 
-#' @title IndL
-#' @description Determine case and mode status, and calculate the corresponding joint likelihood
+#' @title CalcIndividualLikelihood
+#' @description Determine case and mode status, and calculate the corresponding joint likelihood.
 #' @export
-IndL <- function(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_IndL', PACKAGE = 'BCNatHist', is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
+CalcIndividualLikelihood <- function(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcIndividualLikelihood`, is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
 }
 
-f_CaseIntegral_odg <- function(age, v, scr, par, t, t_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_f_CaseIntegral_odg', PACKAGE = 'BCNatHist', age, v, scr, par, t, t_wts, d0, v0)
+#' @title EvalCaseIntegralODG
+#' @description Evaluate the integral for BC cases, in a model with onset-dependent growth rates.
+#' @export
+EvalCaseIntegralODG <- function(age, v, scr, par, t, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_EvalCaseIntegralODG`, age, v, scr, par, t, t_wts, d0, v0)
 }
 
-f_CensIntegral_odg <- function(age, scr, par, t, t_wts, r, r_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_f_CensIntegral_odg', PACKAGE = 'BCNatHist', age, scr, par, t, t_wts, r, r_wts, d0, v0)
+#' @title EvalCensIntegralODG
+#' @description Evaluate the double integral for censored, in a model with onset-dependent growth rates.
+#' @export
+EvalCensIntegralODG <- function(age, scr, par, t, t_wts, r, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_EvalCensIntegralODG`, age, scr, par, t, t_wts, r, r_wts, d0, v0)
 }
 
-f_ScreenCase_odg <- function(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_f_ScreenCase_odg', PACKAGE = 'BCNatHist', age, v, scr, par, t_pts, t_wts, d0, v0)
+#' @title CalcScreenCaseODG
+#' @description Calculate the joint likelihood of a single screen-detected case, in a model with onset-dependent growth rates.
+#' @export
+CalcScreenCaseODG <- function(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcScreenCaseODG`, age, v, scr, par, t_pts, t_wts, d0, v0)
 }
 
-f_SymptCase_odg <- function(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_f_SymptCase_odg', PACKAGE = 'BCNatHist', age, v, scr, par, t_pts, t_wts, d0, v0)
+#' @title CalcSymptCaseODG
+#' @description Calculate the joint likelihood of a single symptomatic case, in a model with onset-dependent growth rates.
+#' @export
+CalcSymptCaseODG <- function(age, v, scr, par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcSymptCaseODG`, age, v, scr, par, t_pts, t_wts, d0, v0)
 }
 
-f_CensCase_odg <- function(age, scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_f_CensCase_odg', PACKAGE = 'BCNatHist', age, scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
+#' @title CalcCensCaseODG
+#' @description Calculate the joint likelihood of a single censored, in a model with onset-dependent growth rates.
+#' @export
+CalcCensCaseODG <- function(age, scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcCensCaseODG`, age, scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
 }
 
-IndL_odg <- function(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
-    .Call('_BCNatHist_IndL_odg', PACKAGE = 'BCNatHist', is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
+#' @title CalcIndividualLikelihoodODG
+#' @description Determine case and mode status, and calculate the corresponding joint likelihood, in a model with onset-dependent growth rates.
+#' @export
+CalcIndividualLikelihoodODG <- function(is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcIndividualLikelihoodODG`, is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
 }
 

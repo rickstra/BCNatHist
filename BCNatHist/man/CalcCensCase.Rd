@@ -17,5 +17,5 @@ CalcCensCase(
 )
 }
 \description{
-Calculate the joint likelihood of a single censored
+Calculate the likelihood of a single censored.
 }

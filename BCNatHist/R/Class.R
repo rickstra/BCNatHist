@@ -60,18 +60,18 @@ DefineBCModel <- function(onset = ~ 1, growth = ~ 1, sympt = ~ 1, sens = ~ 1,
 #' @description Fit a BCModel to cohort data.
 #'
 #' @param model Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.
-#' @param data Data.
+#' @param data Dataframe containing the cohort data. One entry per individual.
 #' @param hessian Indicates if the Hessian matrix should be returned.
 #' @param n_cores Indicates the number of CPU threads to use.
 #' @param d0 The starting diameter of tumors at onset.
 #' @param entry The variable name in \code{data} corresponding to the age at study entry.
-#' @param exit  The variable name in \code{data} corresponding to the age at end of follow-up.
+#' @param exit  The variable name in \code{data} corresponding to the age at end of follow-up. For BC cases, this is also the age at diagnosis. 
 #' @param is_case The variable name in \code{data} indicating BC case status (case = 1).
 #' @param mode The variable name in \code{data} indicating the mode of detection (screen-detected = 1).
 #' @param size The variable name in \code{data} corresponding to the tumor size (mm).
 #' @param scr_hist The variable name in \code{data} corresponding to the screening histories (each entry a list of ages screened).
-#' @param gauss_kronrod_set Description.
-#' @param gauss_leguerre_set Description.
+#' @param gauss_kronrod_set Integer indicating how many nodes to use in Gauss-Kronrod quadrature. Values of 1-6 are supported and correspond to {11, 21, ..., 61} nodes, respectively.
+#' @param gauss_leguerre_set Integer indicating how many nodes to use in Gauss-Leguerre quadrature. Values of 1-6 are supported and correspond to {10, 20, ..., 60} nodes, respectively..
 #' 
 #' @return Fitted Model.
 #' @export
@@ -85,9 +85,9 @@ EstimateBCModel <- function(model, data, hessian = TRUE,
   cat("Estimating...\n")
   
   if (model$onset_dep_growth){
-    IndL__ <- IndL_odg
+    IndL__ <- CalcIndividualLikelihoodODG
   } else {
-    IndL__ <- IndL
+    IndL__ <- CalcIndividualLikelihood
   }
   
   `%dopar%` <- foreach::`%dopar%`
@@ -144,7 +144,7 @@ EstimateBCModel <- function(model, data, hessian = TRUE,
     par_names <- c("A", "B", "delta", "phi", "mu", "eta", "beta1", "beta2")
     # Onset-dependent growth?
     if(model$onset_dep_growth) {
-      parnames <- c(par_names, "odg")
+      par_names <- c(par_names, "odg")
     } else {
       par <- NULL
     }
