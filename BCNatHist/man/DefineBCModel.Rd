@@ -9,8 +9,8 @@ DefineBCModel(
   growth = ~1,
   sympt = ~1,
   sens = ~1,
-  onset.dep.growth = FALSE,
-  start.par = NULL
+  onset_dep_growth = FALSE,
+  start_par = NULL
 )
 }
 \arguments{
@@ -22,9 +22,9 @@ DefineBCModel(
 
 \item{sens}{Specifies covariates to include in the screening sensitivity submodel.}
 
-\item{onset.dep.growth}{Indicate if the inverse growth rate should depend on the age at onset (Strandberg et al. 2022).}
+\item{onset_dep_growth}{Indicate if the inverse growth rate should depend on the age at onset (Strandberg et al. 2022).}
 
-\item{start.par}{Optionally specify (starting) parameter values.}
+\item{start_par}{Optionally specify (starting) parameter values.}
 }
 \value{
 A list-type object of class "BCmodel".
@@ -33,7 +33,7 @@ A list-type object of class "BCmodel".
   \item{$growth}{The specified formula for the growth rate submodel.}
   \item{$sympt}{The specified formula for the symptomatic detection submodel.}
   \item{$sens}{The specified formula for the screening sensitivity submodel.}
-  \item{$onset.dep.growth}{Indicates if the inverse growth rate depends on the age at onset}
+  \item{$onset_dep_growth}{Indicates if the inverse growth rate depends on the age at onset}
   \item{$par}{Numeric vector containing parameter values for all four submodels, either provided by start.par or assigned by the function.}
   \item{$fitted}{Indicates if the model parameters has been fitted to data. Set to FALSE.}
 }
@@ -43,6 +43,6 @@ Set up a natural history model.
 }
 \examples{
 DefineBCModel()
-DefineBCModel(sens = ~ percent.density, onset.dep.growth = TRUE)
-DefineBCModel(onset = ~ family.history + birads, growth = ~ bmi)
+DefineBCModel(sens = ~ percent_density, onset_dep_growth = TRUE)
+DefineBCModel(onset = ~ family_history + birads, growth = ~ bmi)
 }

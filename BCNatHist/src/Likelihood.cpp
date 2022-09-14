@@ -13,6 +13,7 @@
 //' @title EvalCaseIntegral
 //' @description Evaluate the integral for BC cases
 //' @export
+// [[Rcpp::export]]
 double EvalCaseIntegral(double age, double v, arma::rowvec scr, 
                     arma::vec par, arma::colvec t, arma::colvec t_wts, 
                     double d0 = 0.5, double v0 = 0.06544985){
@@ -48,6 +49,7 @@ double EvalCaseIntegral(double age, double v, arma::rowvec scr,
 //' @title EvalCensIntegral
 //' @description Evaluate the double integral for censored
 //' @export
+// [[Rcpp::export]]
 double EvalCensIntegral(double age, arma::rowvec scr, arma::vec par,
                     arma::colvec t, arma::colvec t_wts,
                     arma::rowvec r, arma::rowvec r_wts,
@@ -98,6 +100,7 @@ double EvalCensIntegral(double age, arma::rowvec scr, arma::vec par,
 //' @title CalcScreenCase
 //' @description Calculate the joint likelihood of a single screen-detected case
 //' @export
+// [[Rcpp::export]]
 double CalcScreenCase(double age, double v, arma::rowvec scr, arma::vec par, 
                   arma::colvec t_pts, arma::colvec t_wts, 
                   double d0 = 0.5, double v0 = 0.06544985) {
@@ -111,6 +114,7 @@ double CalcScreenCase(double age, double v, arma::rowvec scr, arma::vec par,
 //' @title CalcSymptCase
 //' @description Calculate the joint likelihood of a single symptomatic case
 //' @export
+// [[Rcpp::export]]
 double CalcSymptCase(double age, double v, arma::rowvec scr, arma::vec par, 
                  arma::colvec t_pts, arma::colvec t_wts, 
                   double d0 = 0.5, double v0 = 0.06544985) {
@@ -123,6 +127,7 @@ double CalcSymptCase(double age, double v, arma::rowvec scr, arma::vec par,
 //' @title CalcCensCase
 //' @description Calculate the joint likelihood of a single censored
 //' @export
+// [[Rcpp::export]]
 double CalcCensCase(double age, arma::rowvec scr, arma::vec par, 
                 arma::colvec t_pts, arma::colvec t_wts, 
                 arma::rowvec r_pts, arma::rowvec r_wts,
@@ -137,6 +142,7 @@ double CalcCensCase(double age, arma::rowvec scr, arma::vec par,
 //' @title IndL
 //' @description Determine case and mode status, and calculate the corresponding joint likelihood
 //' @export
+// [[Rcpp::export]]
 double IndL(int is_case, int is_scr, double age, double v, arma::rowvec scr,
             double entry, arma::rowvec e_scr, arma::vec par,
             arma::colvec t_pts, arma::colvec t_wts,

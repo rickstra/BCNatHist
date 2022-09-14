@@ -8,26 +8,26 @@ EstimateBCModel(
   model,
   data,
   hessian = TRUE,
-  n.cores = parallel::detectCores() - 1,
+  n_cores = parallel::detectCores() - 1,
   d0 = 0.5,
   entry = "entry",
   exit = "exit",
-  is.case = "case",
+  is_case = "case",
   mode = "mode",
   size = "size",
-  scr.hist = "scr",
-  gauss.kronrod.set = 6,
-  gauss.leguerre.set = 4
+  scr_hist = "scr",
+  gauss_kronrod_set = 6,
+  gauss_leguerre_set = 4
 )
 }
 \arguments{
 \item{model}{Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.}
 
-\item{data}{Data}
+\item{data}{Data.}
 
 \item{hessian}{Indicates if the Hessian matrix should be returned.}
 
-\item{n.cores}{Indicates the number of CPU threads to use.}
+\item{n_cores}{Indicates the number of CPU threads to use.}
 
 \item{d0}{The starting diameter of tumors at onset.}
 
@@ -35,20 +35,20 @@ EstimateBCModel(
 
 \item{exit}{The variable name in \code{data} corresponding to the age at end of follow-up.}
 
-\item{is.case}{The variable name in \code{data} indicating BC case status (case = 1).}
+\item{is_case}{The variable name in \code{data} indicating BC case status (case = 1).}
 
-\item{mode}{The variable name in \code{data} indicating the mode of detection (screen-detected = 1)}
+\item{mode}{The variable name in \code{data} indicating the mode of detection (screen-detected = 1).}
 
 \item{size}{The variable name in \code{data} corresponding to the tumor size (mm).}
 
-\item{scr.hist}{The variable name in \code{data} corresponding to the screening histories (each entry a list of ages screened).}
+\item{scr_hist}{The variable name in \code{data} corresponding to the screening histories (each entry a list of ages screened).}
 
-\item{gauss.kronrod.set}{Description}
+\item{gauss_kronrod_set}{Description.}
 
-\item{gauss.leguerre.set}{Description}
+\item{gauss_leguerre_set}{Description.}
 }
 \value{
-Fitted Model
+Fitted Model.
 }
 \description{
 Fit a BCModel to cohort data.

@@ -203,7 +203,7 @@ EstimateBCModel <- function(model, data, hessian = TRUE,
 }
 
 #' @title SummarizeBCEstimates
-#' @description 
+#' @description Description
 #'
 #' @param model Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.
 #' @param alpha Par.
@@ -240,7 +240,7 @@ SummarizeBCEstimates <- function(model, alpha = 0.05, trans = TRUE) {
 }
 
 #' @title summary.BCModel
-#' @description 
+#' @description Description
 #'
 #' @param model Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.
 #' @return Fitted Model.
