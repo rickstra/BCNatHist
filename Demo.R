@@ -16,6 +16,6 @@ load(url("https://github.com/rickstra/BCNatHist/raw/main/demo_data.RData"))
 
 demo_model <- BCNatHist::DefineBCModel(sens = ~pd)
 # demo_model$par <- c(-2.4564, -6.7171, -0.5466, 0.4694, -2.8179, 0.0136, -8.8572, -4.9461, -2.1686)
-demo_model <- BCNatHist::EstimateBCModel(demo_model, demo_data, n_core, gauss_kronrod_set = 4, gauss_leguerre_set = 2, 
+demo_model <- BCNatHist::EstimateBCModel(demo_model, demo_data, gauss_kronrod_set = 4, gauss_leguerre_set = 2, 
                                          n_cores = parallel::detectCores() - 1) # Mind the number of cores you want to use
 summary(demo_model)
