@@ -1,5 +1,5 @@
 ## Optionally install dependencies
-# install.packages(c("foreach", "doParallel", "itertools"))
+# install.packages(c("foreach", "doParallel", "itertools", "Rcpp", "RcppAmradillo"))
 
 ## Choose either a) or b):
 ## a) Build and install package from source
