@@ -3,7 +3,7 @@
 
 ## Description
 
-[[1]](#1)
+[[1]](#1)[[2]](#2)
 
 ### To be added:
 
@@ -13,11 +13,13 @@
 
 ## Installation
 
-devtools::install_github()
+`devtools::install_github("rickstra/BCNatHist/BCNatHist", build = TRUE)`  
+or  
+`install.packages("https://github.com/rickstra/BCNatHist/raw/main/BCNatHist_1.0.tar.gz", repos = NULL)`  
 
 ### Dependencies
 
-foreach, doParallel, itertools.
+foreach, doParallel, itertools, Rcpp, RcppArmadillo.
 
 ## How-to
 
