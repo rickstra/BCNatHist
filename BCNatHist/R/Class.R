@@ -6,22 +6,21 @@
 #' @param sens   Specifies covariates to include in the screening sensitivity submodel.
 #' @param onset_dep_growth Indicate if the inverse growth rate should depend on the age at onset (Strandberg et al. 2022).
 #' @param start_par Optionally specify (starting) parameter values.
-#' @return A list-type object of class "BCmodel".
+#' @return A list-type object of class \code{"BCmodel"}.
 #' \describe{
 #'   \item{$onset}{The specified formula for the onset submodel.}
 #'   \item{$growth}{The specified formula for the growth rate submodel.}
 #'   \item{$sympt}{The specified formula for the symptomatic detection submodel.}
 #'   \item{$sens}{The specified formula for the screening sensitivity submodel.}
-#'   \item{$onset_dep_growth}{Indicates if the inverse growth rate depends on the age at onset}
+#'   \item{$onset_dep_growth}{Indicates if the mean of the inverse growth rate distribution depends on the age at onset}
 #'   \item{$par}{Numeric vector containing parameter values for all four submodels, either provided by start.par or assigned by the function.}
-#'   \item{$fitted}{Indicates if the model parameters has been fitted to data. Set to FALSE.}
+#'   \item{$fitted}{Indicates if the model parameters have been fitted to data. Set to FALSE.}
 #' }
 #' @examples
 #' DefineBCModel()
 #' DefineBCModel(sens = ~ percent_density, onset_dep_growth = TRUE)
 #' DefineBCModel(onset = ~ family_history + birads, growth = ~ bmi)
 #' @export
-
 DefineBCModel <- function(onset = ~ 1, growth = ~ 1, sympt = ~ 1, sens = ~ 1, 
                           onset_dep_growth = FALSE, start_par = NULL) {
   var_names <- c(all.vars(onset), all.vars(growth), all.vars(sympt), all.vars(sens))
@@ -61,7 +60,7 @@ DefineBCModel <- function(onset = ~ 1, growth = ~ 1, sympt = ~ 1, sens = ~ 1,
 #'
 #' @param model Natural history model of class \code{BCModel} as defined by \code{DefineBCModel}.
 #' @param data Dataframe containing the cohort data. One entry per individual.
-#' @param hessian Indicates if the Hessian matrix should be returned.
+#' @param hessian Indicates if the Hessian matrix of the maximum log-likelihood should be returned.
 #' @param n_cores Indicates the number of CPU threads to use.
 #' @param d0 The starting diameter of tumors at onset.
 #' @param entry The variable name in \code{data} corresponding to the age at study entry.
@@ -74,6 +73,17 @@ DefineBCModel <- function(onset = ~ 1, growth = ~ 1, sympt = ~ 1, sens = ~ 1,
 #' @param gauss_leguerre_set Integer indicating how many nodes to use in Gauss-Leguerre quadrature. Values of 1-6 are supported and correspond to {10, 20, ..., 60} nodes, respectively..
 #' 
 #' @return Fitted Model.
+#' \describe{
+#'   \item{$onset}{The specified formula for the onset submodel.}
+#'   \item{$growth}{The specified formula for the growth rate submodel.}
+#'   \item{$sympt}{The specified formula for the symptomatic detection submodel.}
+#'   \item{$sens}{The specified formula for the screening sensitivity submodel.}
+#'   \item{$onset_dep_growth}{Indicates if the mean of the inverse growth rate distribution depends on the age at onset}
+#'   \item{$par}{Numeric vector containing parameter values for all four submodels, either provided by start.par or assigned by the function.}
+#'   \item{$fitted}{Indicates if the model parameters have been fitted to data. Set to TRUE if the optimization succeeds.}
+#' }
+#' @examples
+#' 
 #' @export
 
 EstimateBCModel <- function(model, data, hessian = TRUE, 
@@ -171,12 +181,12 @@ EstimateBCModel <- function(model, data, hessian = TRUE,
                     #.packages = "BCNatHist", 
                     .export = c("gkmat", "glmat", "IndL__", "v0"), 
                     .combine = sum) %dopar%
-      sapply(i, function(i) {
+      vapply(i, function(i) {
         log(IndL__(data$case[i], data$mode[i], data$exit[i],
                    data$v[i], data$scr[[i]],
                    data$entry[i], data$e_scr[[i]],
                    new_par[i, ], gkmat$x, gkmat$w, glmat$x, glmat$w, d0 = d0, v0 = v0))
-      })
+      }, FUN.VALUE = 0)
     cat("Iteration", bc_est_iter, ", time elapsed=", round(Sys.time() - start_time, 3), ": LogL=", log_lik, "    \r")
     ifelse(is.nan(log_lik), -1e16, log_lik)
   }
