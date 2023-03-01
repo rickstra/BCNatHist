@@ -85,3 +85,60 @@ CalcIndividualLikelihoodODG <- function(is_case, is_scr, age, v, scr, entry, e_s
     .Call(`_BCNatHist_CalcIndividualLikelihoodODG`, is_case, is_scr, age, v, scr, entry, e_scr, par, t_pts, t_wts, r_pts, r_wts, d0, v0)
 }
 
+#' @title EvalCaseIntegralLong
+#' @description Evaluate the integral for BC cases.
+#' @export
+EvalCaseIntegralLong <- function(age, v, scr, par, scr_par, t, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_EvalCaseIntegralLong`, age, v, scr, par, scr_par, t, t_wts, d0, v0)
+}
+
+#' @title EvalCensIntegralLong
+#' @description Evaluate the double integral for censored.
+#' @export
+EvalCensIntegralLong <- function(age, scr, par, scr_par, t, t_wts, r, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_EvalCensIntegralLong`, age, scr, par, scr_par, t, t_wts, r, r_wts, d0, v0)
+}
+
+#' @title CalcScreenCaseLong
+#' @description Calculate the joint likelihood of a single screen-detected case.
+#' @export
+CalcScreenCaseLong <- function(age, v, scr, par, scr_par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcScreenCaseLong`, age, v, scr, par, scr_par, t_pts, t_wts, d0, v0)
+}
+
+#' @title CalcSymptCaseLong
+#' @description Calculate the joint likelihood of a single symptomatic case.
+#' @export
+CalcSymptCaseLong <- function(age, v, scr, par, scr_par, t_pts, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcSymptCaseLong`, age, v, scr, par, scr_par, t_pts, t_wts, d0, v0)
+}
+
+#' @title CalcCensCaseLong
+#' @description Calculate the likelihood of a single censored.
+#' @export
+CalcCensCaseLong <- function(age, scr, par, scr_par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcCensCaseLong`, age, scr, par, scr_par, t_pts, t_wts, r_pts, r_wts, d0, v0)
+}
+
+#' @title CalcIndividualLikelihoodLong
+#' @description Determine case and mode status, and calculate the corresponding joint likelihood.
+#' @export
+CalcIndividualLikelihoodLong <- function(is_case, is_scr, age, v, scr, entry, e_scr, par, scr_par, e_scr_par, t_pts, t_wts, r_pts, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcIndividualLikelihoodLong`, is_case, is_scr, age, v, scr, entry, e_scr, par, scr_par, e_scr_par, t_pts, t_wts, r_pts, r_wts, d0, v0)
+}
+
+#' @title CalcSymptCaseCumulative
+#' @description Calculate the likelihood of being a symptomatic case, cumulative over age.
+#' @export
+CalcSymptCaseCumulative <- function(age, v, scr, par, t, t_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcSymptCaseCumulative`, age, v, scr, par, t, t_wts, d0, v0)
+}
+
+#' @title CalcFutureScreeningSens
+#' @description Calculate the probability of being detected at a future screening. 
+#' Note: the screening at \code{age} should not be included in the screening history \code{scr}.
+#' @export
+CalcFutureScreeningSens <- function(age, scr, par, t, t_wts, r, r_wts, d0 = 0.5, v0 = 0.06544985) {
+    .Call(`_BCNatHist_CalcFutureScreeningSens`, age, scr, par, t, t_wts, r, r_wts, d0, v0)
+}
+

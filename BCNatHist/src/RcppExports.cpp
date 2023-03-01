@@ -243,6 +243,166 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// EvalCaseIntegralLong
+double EvalCaseIntegralLong(double age, double v, arma::rowvec scr, arma::vec par, arma::rowvec scr_par, arma::colvec t, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_EvalCaseIntegralLong(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP scr_parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< double >::type v(vSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr_par(scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t(tSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(EvalCaseIntegralLong(age, v, scr, par, scr_par, t, t_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EvalCensIntegralLong
+double EvalCensIntegralLong(double age, arma::rowvec scr, arma::vec par, arma::rowvec scr_par, arma::colvec t, arma::colvec t_wts, arma::rowvec r, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_EvalCensIntegralLong(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP scr_parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP rSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr_par(scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t(tSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r(rSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(EvalCensIntegralLong(age, scr, par, scr_par, t, t_wts, r, r_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CalcScreenCaseLong
+double CalcScreenCaseLong(double age, double v, arma::rowvec scr, arma::vec par, arma::rowvec scr_par, arma::colvec t_pts, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcScreenCaseLong(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP scr_parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< double >::type v(vSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr_par(scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_pts(t_ptsSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcScreenCaseLong(age, v, scr, par, scr_par, t_pts, t_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CalcSymptCaseLong
+double CalcSymptCaseLong(double age, double v, arma::rowvec scr, arma::vec par, arma::rowvec scr_par, arma::colvec t_pts, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcSymptCaseLong(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP scr_parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< double >::type v(vSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr_par(scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_pts(t_ptsSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcSymptCaseLong(age, v, scr, par, scr_par, t_pts, t_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CalcCensCaseLong
+double CalcCensCaseLong(double age, arma::rowvec scr, arma::vec par, arma::rowvec scr_par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcCensCaseLong(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP scr_parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr_par(scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_pts(t_ptsSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r_pts(r_ptsSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcCensCaseLong(age, scr, par, scr_par, t_pts, t_wts, r_pts, r_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CalcIndividualLikelihoodLong
+double CalcIndividualLikelihoodLong(int is_case, int is_scr, double age, double v, arma::rowvec scr, double entry, arma::rowvec e_scr, arma::vec par, arma::rowvec scr_par, arma::rowvec e_scr_par, arma::colvec t_pts, arma::colvec t_wts, arma::rowvec r_pts, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcIndividualLikelihoodLong(SEXP is_caseSEXP, SEXP is_scrSEXP, SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP entrySEXP, SEXP e_scrSEXP, SEXP parSEXP, SEXP scr_parSEXP, SEXP e_scr_parSEXP, SEXP t_ptsSEXP, SEXP t_wtsSEXP, SEXP r_ptsSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type is_case(is_caseSEXP);
+    Rcpp::traits::input_parameter< int >::type is_scr(is_scrSEXP);
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< double >::type v(vSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< double >::type entry(entrySEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type e_scr(e_scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr_par(scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type e_scr_par(e_scr_parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_pts(t_ptsSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r_pts(r_ptsSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcIndividualLikelihoodLong(is_case, is_scr, age, v, scr, entry, e_scr, par, scr_par, e_scr_par, t_pts, t_wts, r_pts, r_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CalcSymptCaseCumulative
+double CalcSymptCaseCumulative(double age, double v, arma::rowvec scr, arma::vec par, arma::colvec t, arma::colvec t_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcSymptCaseCumulative(SEXP ageSEXP, SEXP vSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< double >::type v(vSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t(tSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcSymptCaseCumulative(age, v, scr, par, t, t_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
+// CalcFutureScreeningSens
+double CalcFutureScreeningSens(double age, arma::rowvec scr, arma::vec par, arma::colvec t, arma::colvec t_wts, arma::rowvec r, arma::rowvec r_wts, double d0, double v0);
+RcppExport SEXP _BCNatHist_CalcFutureScreeningSens(SEXP ageSEXP, SEXP scrSEXP, SEXP parSEXP, SEXP tSEXP, SEXP t_wtsSEXP, SEXP rSEXP, SEXP r_wtsSEXP, SEXP d0SEXP, SEXP v0SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type age(ageSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type scr(scrSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type par(parSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t(tSEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type t_wts(t_wtsSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r(rSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type r_wts(r_wtsSEXP);
+    Rcpp::traits::input_parameter< double >::type d0(d0SEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    rcpp_result_gen = Rcpp::wrap(CalcFutureScreeningSens(age, scr, par, t, t_wts, r, r_wts, d0, v0));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_BCNatHist_EvalCaseIntegral", (DL_FUNC) &_BCNatHist_EvalCaseIntegral, 8},
@@ -257,6 +417,14 @@ static const R_CallMethodDef CallEntries[] = {
     {"_BCNatHist_CalcSymptCaseODG", (DL_FUNC) &_BCNatHist_CalcSymptCaseODG, 8},
     {"_BCNatHist_CalcCensCaseODG", (DL_FUNC) &_BCNatHist_CalcCensCaseODG, 9},
     {"_BCNatHist_CalcIndividualLikelihoodODG", (DL_FUNC) &_BCNatHist_CalcIndividualLikelihoodODG, 14},
+    {"_BCNatHist_EvalCaseIntegralLong", (DL_FUNC) &_BCNatHist_EvalCaseIntegralLong, 9},
+    {"_BCNatHist_EvalCensIntegralLong", (DL_FUNC) &_BCNatHist_EvalCensIntegralLong, 10},
+    {"_BCNatHist_CalcScreenCaseLong", (DL_FUNC) &_BCNatHist_CalcScreenCaseLong, 9},
+    {"_BCNatHist_CalcSymptCaseLong", (DL_FUNC) &_BCNatHist_CalcSymptCaseLong, 9},
+    {"_BCNatHist_CalcCensCaseLong", (DL_FUNC) &_BCNatHist_CalcCensCaseLong, 10},
+    {"_BCNatHist_CalcIndividualLikelihoodLong", (DL_FUNC) &_BCNatHist_CalcIndividualLikelihoodLong, 16},
+    {"_BCNatHist_CalcSymptCaseCumulative", (DL_FUNC) &_BCNatHist_CalcSymptCaseCumulative, 8},
+    {"_BCNatHist_CalcFutureScreeningSens", (DL_FUNC) &_BCNatHist_CalcFutureScreeningSens, 9},
     {NULL, NULL, 0}
 };
 
