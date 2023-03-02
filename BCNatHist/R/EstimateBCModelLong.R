@@ -37,7 +37,8 @@ EstimateBCModelLong <- function(model, data, scr_data,
                                 base_variables = list(
                                   entry = "entry", exit = "exit", is_case = "case", 
                                   mode = "mode", size = "size", scr_hist = "scr"), 
-                                hessian = TRUE, n_cores = parallel::detectCores() - 1, d0 = 0.5) {
+                                hessian = TRUE, gauss_kronrod_set = 6, gauss_leguerre_set = 4, 
+                                n_cores = parallel::detectCores() - 1, d0 = 0.5) {
   bc_est_iter__ <<- 0
   cat("Estimating...\n")
   
