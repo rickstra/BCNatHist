@@ -61,7 +61,7 @@ EstimateBCModelLong <- function(model, data, scr_data,
     Wah_wah()
   }
   
-  data <- MatchDataVariables(data, base_variables, model)
+  data <- MatchDataVariables(data, base_variables, model, FALSE)
  
   ParBuilder <- function(par, data, scr_data, model) {
     
@@ -97,7 +97,7 @@ EstimateBCModelLong <- function(model, data, scr_data,
     
     #parnames <- c('A', 'B', 'delta', 'phi', 'mu', 'eta', 'beta1', 'beta2')
     # Onset-dependent growth?
-    if(model$onset_dependent_growth) {
+    if(model$onset_dep_growth) {
       parnames <- c(parnames, "odg")
     } else {
       par <- NULL
@@ -123,7 +123,8 @@ EstimateBCModelLong <- function(model, data, scr_data,
     newpar <- ParBuilder(par, data, scr_data, model)
     
     logL <- foreach::foreach(i=itertools::isplitVector(1:nrow(data), chunks = n_cores), 
-                    .combine = sum) %dopar%
+                             .export = c("gkmat", "glmat", "IndL__", "v0"),
+                             .combine = sum) %dopar%
       vapply(i, function(i) {
         log(IndL__(data$case[i], data$mode[i], data$exit[i],
                    data$v[i], scr_data$age_mammogram[link[[i]]],
