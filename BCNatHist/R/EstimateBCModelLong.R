@@ -61,7 +61,7 @@ EstimateBCModelLong <- function(model, data, scr_data,
     Wah_wah()
   }
   
-  data <- MatchDataVariables(data, base_variables, model)
+  data <- MatchDataVariables(data, base_variables, model, FALSE)
  
   ParBuilder <- function(par, data, scr_data, model) {
     
