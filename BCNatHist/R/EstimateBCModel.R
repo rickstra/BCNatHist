@@ -54,7 +54,7 @@ EstimateBCModel <- function(model, data,
   
   v0 <- (pi / 6) * d0 ^ 3
   
-  data <- MatchDataVariables(data, base_variables)
+  data <- MatchDataVariables(data, base_variables, model)
   
   CalcLogL <- function(par, data, d0) {
     bc_est_iter <<- bc_est_iter + 1
