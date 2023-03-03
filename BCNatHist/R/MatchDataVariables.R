@@ -29,7 +29,7 @@ MatchDataVariables <- function(data,
                         base_variables = list(
                           entry = "entry", exit = "exit", is_case = "case", 
                           mode = "mode", size = "size", scr_hist = "scr"
-                        ), include_prevalent_screen = TRUE) {
+                        ), model = NULL, include_prevalent_screen = TRUE) {
   `%<%` <- ifelse(include_prevalent_screen,`<`, `<=`)
   out <- data.frame(
     entry = data[, ifelse(is.null(base_variables$entry), "entry", base_variables$entry)],
@@ -42,5 +42,14 @@ MatchDataVariables <- function(data,
   out$e_scr <- lapply(1:nrow(data), function(i) {
     data$scr[[i]][data$scr[[i]] %<% data$entry[i]] # Note: include entry screen?
   })
-  out
+  
+  if(!is.null(model)) {
+    predictors <- unique(c(all.vars(model$onset), all.vars(model$growth), 
+                           all.vars(model$sympt), all.vars(model$sens)))
+    predictors <- predictors[predictors %in% colnames(data)]
+    
+    return(cbind(out, data[, predictors]))
+  } else(
+    return(out)
+  )
 }
