@@ -60,7 +60,7 @@ EstimateBCModelLong <- function(model, data, scr_data,
   }
   
   data <- MatchDataVariables(data, base_variables)
-  
+ 
   ParBuilder <- function(par, data, scr_data, model) {
     
     o_pred <- model.matrix(model$onset, data)
